@@ -1,24 +1,27 @@
 /// <reference types="cypress" />
 
+import homePage from '../../support/PageObjects/HomePage';
+import elementsPage from '../../support/PageObjects/ElementsPage';
+import inputFieldAndButtonPage from '../../support/PageObjects/InputFieldAndButtonPage';
+
 const blogUrl = "https://ui-playground.blogspot.com/";
 const userName = "Alex";
 let textToVerify = `Your name is ${userName}`;
 
 describe('Suite to verify Input field and Submit button', () => {
-    beforeEach(() => {
+  beforeEach(() => {
 
-      cy.visit(blogUrl)
-    })
-  
-    it('Text field contains entered name', () => {
-      cy.get("#PageList2 a[href*='elements']").click()
-      cy.get("li a[href*='input-field-and-button']")
+    cy.visit(blogUrl)
+  })
+
+  it('Text field contains entered name', () => {
+    homePage.getElementsLink().click()
+    elementsPage.getInputFieldLink()
       .should('be.visible')
       .click()
-      cy.get("#user").type(userName)
-      cy.get("button[name=submit_action]").click()
-      cy.get('#enteredName')
+    inputFieldAndButtonPage.getInputNameField().type(userName)
+    inputFieldAndButtonPage.getSubmitButton().click()
+    inputFieldAndButtonPage.getResultTextField()
       .should('have.text', textToVerify)
-    })
   })
-  
+})
