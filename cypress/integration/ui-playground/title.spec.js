@@ -1,10 +1,9 @@
-const blogUrl = "https://ui-playground.blogspot.com/";
 const blogTitle = "UI Playground";
 
 describe('smoke test suite for UI Playground blog', () => {
     beforeEach(() => {
 
-      cy.visit(blogUrl)
+      cy.visit("/")
     })
   
     it('the blog title should be equal UI Playground', () => {
