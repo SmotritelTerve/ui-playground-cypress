@@ -9,7 +9,6 @@ let textToVerify = `Your name is ${userName}`;
 
 describe('Suite to verify Input field and Submit button', () => {
   beforeEach(() => {
-
     cy.visit("/")
   })
 
