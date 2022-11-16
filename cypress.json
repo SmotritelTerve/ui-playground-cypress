@@ -1,3 +1,7 @@
 {
-    "baseUrl": "https://ui-playground.blogspot.com"
+    "baseUrl": "https://ui-playground.blogspot.com",
+    "testFiles": [
+        "title.spec.js",
+        "input-submit.spec.js"
+    ]
 }
